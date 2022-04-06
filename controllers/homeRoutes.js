@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Project } = require('../models');
 
-router.get('/', async (res, req) => {
+router.get('/', async (req, res) => {
   const projectData = await Project.findAll({
     include: [User]
   });
@@ -9,6 +9,8 @@ router.get('/', async (res, req) => {
   const projects = projectData.map((project) => {
     return project.get({ plain: true });
   });
+
+  console.log(projects);
 
   res.render('all', { projects });
 })

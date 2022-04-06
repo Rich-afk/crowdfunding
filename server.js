@@ -20,8 +20,8 @@ const sess = {
   })
 };
 
-app.set('handlebars', hbs.engine);
-app.engine('view engine', 'handlebars');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(session(sess));
 
